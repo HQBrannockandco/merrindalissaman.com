@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>Merrinda Lissaman &middot; Ceramics</title>
+<meta name="description" content="Hand-thrown stoneware and porcelain by ceramic artist Merrinda Lissaman, made in the English countryside." />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500&family=Inter:wght@300;400;500&display=swap" rel="stylesheet" />
+<style>
+  :root{
+    --paper:#FBFAF7; --paper-2:#F7F5EF; --panel:#F1EEE7;
+    --sage:#8A9A7B; --sage-dark:#6E7E60;
+    --ink:#2E2C28; --muted:#6B6862; --faint:#B0A99A; --line:#E7E2D8;
+    --serif:'Cormorant Garamond',Georgia,serif;
+    --sans:'Inter',-apple-system,BlinkMacSystemFont,'Segoe UI',sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{background:var(--paper);color:var(--ink);font-family:var(--sans);font-weight:300;line-height:1.7;-webkit-font-smoothing:antialiased;}
+  img{display:block;max-width:100%;}
+  a{color:inherit;text-decoration:none;}
+  .wrap{max-width:1120px;margin:0 auto;padding:0 28px;}
+  .eyebrow{font-family:var(--sans);font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--sage);font-weight:400;}
+  .section-label{font-size:11px;letter-spacing:3px;text-transform:uppercase;color:var(--faint);text-align:center;}
+  h1,h2,h3{font-family:var(--serif);font-weight:400;line-height:1.15;}
+
+  /* header */
+  header{position:sticky;top:0;z-index:20;background:rgba(251,250,247,0.9);backdrop-filter:blur(8px);border-bottom:1px solid var(--line);}
+  .nav{display:flex;justify-content:space-between;align-items:center;padding:20px 28px;max-width:1120px;margin:0 auto;}
+  .brand{font-family:var(--serif);font-size:22px;letter-spacing:1px;}
+  .nav ul{display:flex;gap:26px;list-style:none;}
+  .nav a{font-size:12px;letter-spacing:1.5px;text-transform:uppercase;color:var(--muted);transition:color .2s;}
+  .nav a:hover{color:var(--sage);}
+  .nav .enq{color:var(--sage);}
+  .menu-btn{display:none;background:none;border:0;font-size:22px;color:var(--ink);cursor:pointer;}
+
+  /* hero */
+  .hero{position:relative;min-height:82vh;display:flex;align-items:flex-end;color:#FBFAF7;background:#cfc9bd;}
+  .hero img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .hero-shade{position:absolute;inset:0;background:linear-gradient(180deg,rgba(40,38,32,0.05) 0%,rgba(40,38,32,0.45) 100%);}
+  .hero-inner{position:relative;padding:0 28px 64px;max-width:1120px;margin:0 auto;width:100%;}
+  .hero .eyebrow{color:#EDE7D9;}
+  .hero h1{font-size:clamp(38px,6vw,66px);max-width:620px;margin:18px 0 16px;color:#FFFDF8;}
+  .hero p{font-size:17px;max-width:440px;color:#F2EEE4;font-weight:300;}
+
+  /* buttons */
+  .btn{display:inline-block;font-family:var(--sans);font-size:12px;letter-spacing:1.5px;text-transform:uppercase;padding:13px 28px;border-radius:2px;transition:all .2s;cursor:pointer;border:1px solid transparent;}
+  .btn-solid{background:var(--sage);color:#FBFAF7;}
+  .btn-solid:hover{background:var(--sage-dark);}
+  .btn-light{background:#FBFAF7;color:var(--ink);}
+  .btn-light:hover{background:#fff;}
+  .btn-ghost{border:1px solid var(--sage);color:var(--sage);}
+  .btn-ghost:hover{background:var(--sage);color:#FBFAF7;}
+  .hero .btn{margin-top:26px;}
+
+  section{padding:88px 0;}
+  .center{text-align:center;}
+  .sec-title{font-size:34px;text-align:center;margin:8px 0 44px;}
+
+  /* portfolio */
+  .grid{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;}
+  .piece figure{position:relative;overflow:hidden;border-radius:4px;background:var(--panel);aspect-ratio:1/1.15;}
+  .piece img{width:100%;height:100%;object-fit:cover;transition:transform .6s ease;}
+  .piece:hover img{transform:scale(1.04);}
+  .piece .placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;color:var(--faint);font-size:12px;letter-spacing:2px;text-transform:uppercase;background:var(--panel);}
+  .badge{position:absolute;top:12px;left:12px;background:rgba(251,250,247,0.94);color:var(--muted);font-size:10px;letter-spacing:2px;text-transform:uppercase;padding:5px 12px;border-radius:2px;}
+  .piece h3{font-size:19px;margin-top:14px;font-weight:400;}
+  .piece .meta{font-size:12.5px;color:var(--muted);}
+
+  /* story */
+  .story{background:var(--paper-2);}
+  .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:0;align-items:stretch;border-radius:4px;overflow:hidden;}
+  .story-img{background:#c5bca9 url('images/hero.jpg') center/cover;min-height:420px;}
+  .story-copy{padding:56px 48px;background:var(--paper);}
+  .story-copy h2{font-size:30px;margin:14px 0 18px;}
+  .story-copy p{color:var(--muted);margin-bottom:16px;}
+
+  /* offerings */
+  .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:22px;}
+  .card{background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:34px 28px;text-align:center;transition:border-color .2s;}
+  .card:hover{border-color:var(--sage);}
+  .card h3{font-size:22px;margin-bottom:12px;}
+  .card p{font-size:14px;color:var(--muted);margin-bottom:20px;}
+  .card .link{font-size:11px;letter-spacing:2px;text-transform:uppercase;color:var(--sage);}
+
+  /* enquire */
+  .enquire{background:var(--sage);color:#F7F5EF;text-align:center;}
+  .enquire h2{font-size:34px;color:#FFFDF8;margin-bottom:14px;}
+  .enquire p{max-width:440px;margin:0 auto 26px;color:#EEF1E9;}
+
+  footer{background:var(--panel);padding:30px 0;}
+  .foot{display:flex;justify-content:space-between;align-items:center;font-size:11px;letter-spacing:1px;color:var(--muted);}
+  .foot a{color:var(--muted);}
+  .foot a:hover{color:var(--sage);}
+
+  .draft{background:#FCF3E4;border:1px dashed #E3C77E;color:#8a6d1f;font-size:12px;font-family:var(--sans);text-align:center;padding:8px;letter-spacing:1px;}
+
+  @media(max-width:820px){
+    .nav ul{display:none;}
+    .menu-btn{display:block;}
+    .grid,.cards{grid-template-columns:repeat(2,1fr);}
+    .story-grid{grid-template-columns:1fr;}
+    .story-img{min-height:280px;}
+    section{padding:64px 0;}
+    .story-copy{padding:40px 28px;}
+  }
+  @media(max-width:520px){
+    .grid,.cards{grid-template-columns:1fr;}
+  }
+</style>
+</head>
+<body>
+
+<div class="draft">Draft preview &middot; sample text and layout &mdash; replace copy and add photos before going live</div>
+
+<header>
+  <div class="nav">
+    <div class="brand">Merrinda Lissaman</div>
+    <ul>
+      <li><a href="#work">Work</a></li>
+      <li><a href="#story">Story</a></li>
+      <li><a href="#offerings">Offerings</a></li>
+      <li><a href="#enquire" class="enq">Enquire</a></li>
+    </ul>
+    <button class="menu-btn" aria-label="Menu">&#9776;</button>
+  </div>
+</header>
+
+<div class="hero">
+  <img src="images/hero.jpg" alt="A grouping of Merrinda Lissaman's hand-thrown ceramic vessels and dishes" />
+  <div class="hero-shade"></div>
+  <div class="hero-inner">
+    <p class="eyebrow">Ceramic artist &middot; countryside studio</p>
+    <h1>Quiet vessels, shaped by a lifetime with clay</h1>
+    <p>Hand-thrown stoneware and porcelain, drawn from the fields, light and slow seasons of the English countryside.</p>
+    <a href="#work" class="btn btn-light">View the collection</a>
+  </div>
+</div>
+
+<section id="work">
+  <div class="wrap">
+    <p class="section-label">Selected work</p>
+    <h2 class="sec-title">The portfolio</h2>
+    <div class="grid">
+
+      <div class="piece">
+        <figure>
+          <img src="images/stoneware-vessel.jpg" alt="Stoneware vessel with two handles and a chalk-white glaze" />
+          <span class="badge">Sold</span>
+        </figure>
+        <h3>Stoneware Vessel</h3>
+        <p class="meta">Hand-built stoneware, lime-white glaze</p>
+      </div>
+
+      <div class="piece">
+        <figure><div class="placeholder">Photo coming</div></figure>
+        <h3>Painted Landscape Vase</h3>
+        <p class="meta">Wheel-thrown, brushwork glaze</p>
+      </div>
+
+      <div class="piece">
+        <figure><div class="placeholder">Photo coming</div></figure>
+        <h3>Banded Amphora</h3>
+        <p class="meta">Hand-built stoneware</p>
+      </div>
+
+      <div class="piece">
+        <figure><div class="placeholder">Photo coming</div></figure>
+        <h3>Botanical Dish</h3>
+        <p class="meta">Impressed foliage, celadon glaze</p>
+      </div>
+
+      <div class="piece">
+        <figure><div class="placeholder">Photo coming</div></figure>
+        <h3>Field Series Bowl</h3>
+        <p class="meta">Stoneware, speckled glaze</p>
+      </div>
+
+      <div class="piece">
+        <figure><div class="placeholder">Photo coming</div></figure>
+        <h3>Lavender Urn</h3>
+        <p class="meta">Hand-built, matte white</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<section id="story" class="story">
+  <div class="wrap">
+    <div class="story-grid">
+      <div class="story-img" role="img" aria-label="Merrinda Lissaman's ceramics"></div>
+      <div class="story-copy">
+        <p class="eyebrow">Her story</p>
+        <h2>A life studied in clay</h2>
+        <p>Merrinda Lissaman has spent a lifetime in clay. After six years of formal training, she read Glass and Ceramics at Sunderland Polytechnic before completing a Master of Arts in Ceramics at Cardiff College of Art &mdash; a grounding that still shapes the quiet assurance of everything she makes.</p>
+        <p>For more than thirty years she carried that discipline into the NHS, first as a pottery and woodwork technician on a psychiatric unit and later as a qualified occupational therapist. The work left her with an enduring conviction: that making by hand is restorative, grounding, and profoundly human.</p>
+        <p>Today she works from a studio at home, moving between the wheel and hand-building. Her recent work turns to the human form &mdash; a series of busts and larger sculptural pieces marked by the same honesty of material and surface that runs throughout her practice. Alongside her own making, she teaches one-to-one sessions, small workshops, and group work.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="offerings">
+  <div class="wrap">
+    <p class="section-label">Offerings</p>
+    <h2 class="sec-title">Ways to take part</h2>
+    <div class="cards">
+      <div class="card">
+        <h3>Shop pieces</h3>
+        <p>Available work for the home, ready to order and posted with care.</p>
+        <a href="#enquire" class="link">Enquire to buy &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Classes</h3>
+        <p>One-to-one sessions, small workshops, and group work in the home studio &mdash; all levels welcome.</p>
+        <a href="#enquire" class="link">Ask about dates &rarr;</a>
+      </div>
+      <div class="card">
+        <h3>Commissions</h3>
+        <p>Bespoke sets and single pieces, made to your table and occasion.</p>
+        <a href="#enquire" class="link">Discuss a commission &rarr;</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="enquire" class="enquire">
+  <div class="wrap">
+    <h2>Enquire or say hello</h2>
+    <p>For available work, class dates, or a commission &mdash; send a note and Merrinda will reply personally.</p>
+    <a href="mailto:merrindalissaman@hotmail.com?subject=Enquiry%20from%20merrindalissaman.com" class="btn btn-light">Get in touch</a>
+    <p style="margin-top:18px;font-size:13px;letter-spacing:1px;color:#EEF1E9;">merrindalissaman@hotmail.com</p>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap foot">
+    <span>Merrinda Lissaman &middot; Ceramics</span>
+    <span><a href="#">Instagram</a> &nbsp;&middot;&nbsp; <a href="#enquire">Contact</a> &nbsp;&middot;&nbsp; &copy; 2026</span>
+  </div>
+</footer>
+
+<script>
+  document.querySelector('.menu-btn').addEventListener('click',function(){
+    var ul=document.querySelector('.nav ul');
+    ul.style.display = (ul.style.display==='flex')?'none':'flex';
+    ul.style.flexDirection='column';
+    ul.style.position='absolute';ul.style.top='62px';ul.style.right='28px';
+    ul.style.background='var(--paper)';ul.style.padding='16px 22px';
+    ul.style.border='1px solid var(--line)';ul.style.borderRadius='6px';ul.style.gap='14px';
+  });
+</script>
+
+</body>
+</html>
